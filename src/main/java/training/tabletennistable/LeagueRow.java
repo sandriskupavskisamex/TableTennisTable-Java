@@ -1,0 +1,56 @@
+package training.tabletennistable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LeagueRow {
+    private int maxSize;
+    private List<String> players;
+
+    public LeagueRow(int maxSize)
+    {
+        this.maxSize = maxSize;
+        players = new ArrayList<>();
+    }
+
+    public void swap(String playerToRemove, String playerToAdd) {
+        int index = players.indexOf(playerToRemove);
+        if (index != -1)
+        {
+            players.set(index, playerToAdd);
+        }
+        else
+        {
+            throw new IllegalArgumentException("Player " + playerToRemove + " did not exist in row: " + String.join("|", players));
+        }
+    }
+
+    public int getMaxSize()
+    {
+        return maxSize;
+    }
+
+    public List<String> getPlayers()
+    {
+        return players;
+    }
+
+    public void add(String player)
+    {
+        if (isFull())
+        {
+            throw new IllegalArgumentException("Row is full");
+        }
+        players.add(player);
+    }
+
+    public boolean isFull()
+    {
+        return players.size() >= maxSize;
+    }
+
+    public boolean includes(String player)
+    {
+        return players.contains(player);
+    }
+}
