@@ -8,7 +8,7 @@ public class IntegrationTest
     @Test
     public void testPrintsEmptyGame()
     {
-        var app = CreateApp();
+        App app = CreateApp();
 
         Assert.assertEquals("No players yet", app.sendCommand("print"));
     }
