@@ -28,6 +28,7 @@ public class LeagueRenderer {
                 .mapToObj(index -> renderRow(rows.get(index), index, rows.size()))
                 .collect(Collectors.toList());
 
+        System.out.println("X" + String.join("\r\n", renderedRows));
         return String.join("\r\n", renderedRows);
     }
 
